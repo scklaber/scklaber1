@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Волшебные кнопки</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+            transition: background 0.5s;
+        }
+        /* Главная страница */
+        #main-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .title {
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+        .btn {
+            padding: 15px 30px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-left {
+            background: #2196F3; /* Синий */
+        }
+        .btn-left:hover {
+            background: #0b7dda;
+        }
+        .btn-right {
+            background: #ff9800; /* Оранжевый */
+        }
+        .btn-right:hover {
+            background: #e68a00;
+        }
+        /* Страницы с текстом */
+        .content-page {
+            display: none;
+            padding: 50px;
+            text-align: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        #left-page {
+            background: #e3f2fd;
+            color: #2196F3;
+        }
+        #right-page {
+            background: #fff3e0;
+            color: #ff9800;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #333;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Главная страница с кнопками -->
+    <div id="main-page">
+        <div class="title">твой выбор пришел ты гей или нет...</div>
+        <div class="container">
+            <div class="btn btn-left" onclick="showPage('left-page')">дааа!!!!</div>
+            <div class="btn btn-right" onclick="showPage('right-page')">НЕЕТ! </div>
+        </div>
+    </div>
+
+    <!-- Левая страница (с кнопкой "Назад") -->
+    <div id="left-page" class="content-page">
+        <h1>мы все знали</h1>
+        <p> 😊</p>
+        <a class="back-btn" onclick="showPage('main-page')">← ты поменяешь выбор?</a>
+    </div>
+
+    <!-- Правая страница (БЕЗ кнопки "Назад") -->
+    <div id="right-page" class="content-page">
+        <h1>ага ага ври больше мы все знаем правду</h1>
+        <p> не достоин кнопки </p>
+        <!-- Здесь нет кнопки "Назад" -->
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.content-page, #main-page').forEach(page => {
+                page.style.display = 'none';
+            });
+            
+            if (pageId === 'main-page') {
+                document.getElementById('main-page').style.display = 'flex';
+            } else {
+                document.getElementById(pageId).style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
